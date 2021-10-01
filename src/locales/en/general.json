@@ -1,0 +1,5 @@
+{
+  "button": "Click me",
+  "description_one": "You've clicked me {{count}} time",
+  "description_other": "You've clicked me {{count}} times"
+}

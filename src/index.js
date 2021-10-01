@@ -1,13 +1,36 @@
+import i18n from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { initReactI18next, I18nextProvider } from 'react-i18next';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import generalEN from './locales/en/general.json';
+
+i18n.use(initReactI18next).init({
+  // we init with resources
+  resources: {
+  en: {
+    // Namespaces
+    general: generalEN,
+  },
+},
+  ns: ['general'],
+  defaultNS: 'general',
+  lng: 'en',
+  fallbackLng: 'en',
+  debug: false,
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <I18nextProvider i18n={i18n}>
+      <App />
+    </I18nextProvider>
+  </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 
